@@ -27,6 +27,7 @@ Console.WriteLine($"Current thread after create consumer and before close consum
 SynchronizationContext.SetSynchronizationContext(singleThreadSinchronizationContext);
 //This will cause a deadlock and throw "System.AggregateException: One or more errors occurred"
 //see: https://github.com/rabbitmq/rabbitmq-stream-dotnet-client/issues/25
+//and: https://github.com/rabbitmq/rabbitmq-stream-dotnet-client/discussions/222
 await consumer.Close().ConfigureAwait(false);
 
 Console.WriteLine($"Current SynchronizationContext {SynchronizationContext.Current}");
