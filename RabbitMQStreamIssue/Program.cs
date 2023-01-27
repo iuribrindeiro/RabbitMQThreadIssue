@@ -31,7 +31,7 @@ SynchronizationContext.SetSynchronizationContext(singleThreadSinchronizationCont
 await consumer.Close().ConfigureAwait(false);
 
 Console.WriteLine($"Current SynchronizationContext {SynchronizationContext.Current}");
-//This doesn't block the current thread because the callback (code after line 33) is running on a different thread, hence, not causing a deadlock
+//This doesn't block the current thread because the callback (code after line 35) is running on a different thread, hence, not causing a deadlock
 await Task.Delay(1000).ConfigureAwait(false);
 
 Console.WriteLine($"Current SynchronizationContext after ConfigureAwait(false) {SynchronizationContext.Current?.ToString() ?? "null"}");
